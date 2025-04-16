@@ -1,7 +1,8 @@
 export default {
   async fetch(request, env) {
+    let url = new URL(request.url)
     const inputs = {
-      prompt: "cyberpunk A man smoking in the garden",
+      prompt: url.searchParams.get('p')??'a cyberpunk dog'
     };
 
     const response = await env.AI.run(
